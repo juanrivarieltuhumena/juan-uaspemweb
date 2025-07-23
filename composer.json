@@ -8,8 +8,11 @@
     "require": {
         "php": "^8.2",
         "filament/filament": "^3.0",
+        "filament/support": "*",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1"
+        "laravel/sanctum": "^4.2",
+        "laravel/tinker": "^2.10.1",
+        "spatie/simple-excel": "^3.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

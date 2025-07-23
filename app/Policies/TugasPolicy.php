@@ -14,10 +14,16 @@ class TugasPolicy
     }
 
     public function view(User $user, Tugas $tugas): bool
-    {
-        // Admin boleh melihat semua, mahasiswa hanya tugas miliknya
-        return $user->isAdmin() || $tugas->mahasiswa_id === $user->id;
+{
+    // Admin boleh lihat semua
+    if ($user->isAdmin()) {
+        return true;
     }
+
+    // Mahasiswa hanya boleh lihat tugas yang sudah ditugaskan padanya
+    return $tugas->tugasSelesai()->where('user_id', $user->id)->exists();
+}
+
 
     public function create(User $user): bool
     {
